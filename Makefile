@@ -34,6 +34,7 @@ ifeq ($(STATIC_LIB_BUILD),y)
 	TARGET=$(SOURCES) $(STATIC_LIB)
 else
 	TARGET=$(SOURCES) $(SHARED_LIB)
+	EXTRA_FLAGS= -fPIC
 endif
 
 all: $(TARGET)
@@ -45,10 +46,10 @@ $(STATIC_LIB):
 
 $(SHARED_LIB): $(OBJECTS)
 	@echo "Creating Dynamic Lib"
-	$(CC) -shared -fPIC -o $@ $(OBJECTS)
+	$(CC) -shared $(EXTRA_FLAGS) -o $@ $(OBJECTS)
 
 .c.o:
-	$(CC) $(CFLAGS) $(INCDIR) $< -o $@
+	$(CC) $(CFLAGS) $(INCDIR) $(EXTRA_FLAGS) $< -o $@
 
 .PHONY: clean install all test
 
