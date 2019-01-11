@@ -28,7 +28,7 @@ INCDIR=-I./include
 LIBDIR=
 SRCDIR=./src/
 SOURCES=$(SRCDIR)interface.c 
-OBJECTS=$(SOURCES:.c=.o)
+OBJECTS=$(SOURCES:%c=%o)
 
 ifeq ($(STATIC_LIB_BUILD),y)
 	TARGET=$(SOURCES) $(STATIC_LIB)

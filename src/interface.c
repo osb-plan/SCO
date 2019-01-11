@@ -2,6 +2,10 @@
 #include "generic_defs.h"
 #include <string.h>
 
+ extern FILE *stdin;
+
+ extern FILE *stdout; 
+
 void _printc(char *stream, char * msg, char * color)
 {
     if(strcmp(stream, _STDOUT))
