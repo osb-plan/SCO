@@ -17,4 +17,6 @@
 
     #define _STDOUT		"stdout"
     #define _STDERR		"stderr"
+
+    #define PREFIX		"\033"
 #endif

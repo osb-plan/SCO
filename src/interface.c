@@ -10,14 +10,14 @@ void _printc(char *stream, char * msg, char * color)
 {
     if(strcmp(stream, _STDOUT))
     {
-        fprintf(stdout,"\033%s",color);
+        fprintf(stdout,"%s%s",PREFIX, color);
         fprintf(stdout,"%s",msg);
-        fprintf(stdout,"\033%s\n",RESET);
+        fprintf(stdout,"%s%s\n",PREFIX, RESET);
     }else if(strcmp(stream, _STDERR))
     {
-        fprintf(stderr,"\033%s",color);
+        fprintf(stderr,"%s%s", PREFIX, color);
         fprintf(stderr,"%s",msg);
-        fprintf(stderr,"\033%s\n",RESET);
+        fprintf(stderr,"%s%s\n", PREFIX, RESET);
     }    
     printf("%s\n", msg);
 }
