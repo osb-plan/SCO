@@ -1,4 +1,4 @@
-# SCO (String Color Output)
+# SCO (String Color Output) 
 Simple wrap to print colored messages.
 
 To compile:
