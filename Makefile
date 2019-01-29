@@ -3,9 +3,9 @@ CC=gcc
 
 include config.mk
 
-$(info "STATIC FLAG =" [${STATIC_LIB_BUILD}])
-$(info "DEBUG FLAG ="  [${DEBUG}])
-
+$(info STATIC FLAG             =  [${STATIC_LIB_BUILD}])
+$(info DEBUG FLAG              =  [${DEBUG}])
+$(info TIME_SUPPORT            =  [${TIME_SUPPORT}])
 
 EXT_FLAGS=
 
@@ -13,6 +13,12 @@ EXT_FLAGS=
 ifeq ($(DEBUG),y)
 	EXT_FLAGS=-g
 endif
+
+ifeq ($(TIME_SUPPORT),y)
+	TIME_SUPPORT_FLAG=-DTIME_SUPPORT_ENABLED
+endif
+
+$(info TIME_SUPPORT_FLAG       =  [${TIME_SUPPORT}])
 
 TEST_DIR=test
 INSTALL_LIB_DIR=libs
@@ -46,10 +52,10 @@ $(STATIC_LIB):
 
 $(SHARED_LIB): $(OBJECTS)
 	@echo "Creating Dynamic Lib"
-	$(CC) -shared $(EXTRA_FLAGS) -o $@ $(OBJECTS)
+	$(CC) -shared $(EXTRA_FLAGS) $(TIME_SUPPORT_FLAG)  -o $@ $(OBJECTS)
 
 .c.o:
-	$(CC) $(CFLAGS) $(INCDIR) $(EXTRA_FLAGS) $< -o $@
+	$(CC) $(CFLAGS) $(INCDIR) $(EXTRA_FLAGS) $(TIME_SUPPORT_FLAG) $< -o $@
 
 .PHONY: clean install all test
 
