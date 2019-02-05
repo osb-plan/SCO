@@ -1,7 +1,7 @@
 #ifndef GENERIC_DEFS_H_
 #define GENERIC_DEFS_H_
 
-    #define SW_VERSION		"VER 1.0"
+    #define SCO_SW_VERSION		"VER 1.0"
     #define RED 		"[0;31m"
     #define BOLD_RED 		"[1;31m"
     #define GREEN		"[0;32m"	
