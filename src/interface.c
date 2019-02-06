@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "generic_defs.h"
+#include "sco_generic_defs.h"
 #include <string.h>
 
 #ifdef TIME_SUPPORT_ENABLED

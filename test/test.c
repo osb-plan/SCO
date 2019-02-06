@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "interface.h"
-#include "generic_defs.h"
+#include "sco_generic_defs.h"
 
 int main()
 {
