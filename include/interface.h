@@ -7,6 +7,9 @@ extern "C" {
                  char * msg,
                  char * color, int tab);
     
+    void _printcNw(char *stream,
+                 char * msg,
+                 char * color, int tab);
 #ifdef __cplusplus
 }  
 #endif

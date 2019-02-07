@@ -61,3 +61,23 @@ void _printc(char *stream, char * msg, char * color, uint8_t tab)
     }    
 }
 
+void _printcNw(char *stream, char * msg, char * color, uint8_t tab)
+{
+
+#ifdef TIME_SUPPORT_ENABLED
+        print_datetime(stream);
+#endif
+
+    if(strcmp(stream, _STDOUT))
+    {
+        fprintf(stdout,"%s%s",PREFIX, color);
+        fprintf(stdout,"%s%s",tab ? "\t" : "", msg);
+        fprintf(stdout,"%s%s",PREFIX, RESET_COLOR);
+    }else if(strcmp(stream, _STDERR))
+    {
+
+        fprintf(stderr,"%s%s", PREFIX, color);
+        fprintf(stderr,"%s%s",tab ? "\t" : "",msg);
+        fprintf(stderr,"%s%s", PREFIX, RESET_COLOR);
+    }    
+}
