@@ -4,6 +4,6 @@
 
 int main()
 {
-    _printc(_STDOUT,"Just a Test\n", BOLD_GREEN);
+    _printc(_STDOUT,"Just a Test", BOLD_GREEN, 1);
     return 0;
 }

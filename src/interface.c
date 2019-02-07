@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "sco_generic_defs.h"
 #include <string.h>
+#include <stdint.h>
 
 #ifdef TIME_SUPPORT_ENABLED
 	#include <time.h>
@@ -8,6 +9,7 @@
 
 extern FILE *stdin;
 extern FILE *stdout; 
+
 
 #ifdef TIME_SUPPORT_ENABLED
 void print_datetime(char * stream)
@@ -37,22 +39,24 @@ void print_datetime(char * stream)
 }
 #endif
 
-void _printc(char *stream, char * msg, char * color)
+
+void _printc(char *stream, char * msg, char * color, uint8_t tab)
 {
 
 #ifdef TIME_SUPPORT_ENABLED
         print_datetime(stream);
 #endif
+
     if(strcmp(stream, _STDOUT))
     {
         fprintf(stdout,"%s%s",PREFIX, color);
-        fprintf(stdout,"%s",msg);
+        fprintf(stdout,"%s%s",tab ? "\t" : "", msg);
         fprintf(stdout,"%s%s\n",PREFIX, RESET_COLOR);
     }else if(strcmp(stream, _STDERR))
     {
 
         fprintf(stderr,"%s%s", PREFIX, color);
-        fprintf(stderr,"%s",msg);
+        fprintf(stderr,"%s%s",tab ? "\t" : "",msg);
         fprintf(stderr,"%s%s\n", PREFIX, RESET_COLOR);
     }    
 }

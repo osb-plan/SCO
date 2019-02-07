@@ -5,7 +5,7 @@ extern "C" {
 #endif
     void _printc(char *stream,
                  char * msg,
-                 char * color);
+                 char * color, int tab);
     
 #ifdef __cplusplus
 }  
