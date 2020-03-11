@@ -19,8 +19,8 @@
     
     #define RESET_COLOR		"[0m"	
 
-    #define _STDOUT		"stdout"
-    #define _STDERR		"stderr"
+    #define _STDOUT		 "stdout"
+    #define _STDERR		  "stderr"
 
     #define PREFIX		"\033"
 #endif
